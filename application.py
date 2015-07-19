@@ -1,18 +1,18 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def index_page():
     # Return this as a strange
-    return "<html><body>This is the homepage.</body></html>"
+    return '<html><body>This is the homepage.</body></html>'
 
     # Alternately, we could make this a Jinja template in `templates/`
     # and return that result of rendering this, like:
     #
     # return render_template("index.html")
 
-@app.route('/application-form.html', methods=['POST'])
+@app.route('/application', methods = ['POST'])
 def application():
 	first_name = request.form.get('first')
 	last_name = request.form.get('last')
