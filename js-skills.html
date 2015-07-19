@@ -97,7 +97,13 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  var button = document.getElementById('popup-alert-button');
+
+  function alertClick() {
+    alert('This is an alert!');
+  }
+
+  button.addEventListener('click', alertClick);
 </script>
 
 
@@ -115,7 +121,8 @@
 </fieldset>
 
 <script>
-  // code here for above-problem
+  var message = document.getElementById('message-to-change');
+  message.innerText = 'Goodbye';
 </script>
 
 <div class="hint">
@@ -144,7 +151,14 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  var submitForm = document.getElementById('prevent-form-submission-form');
+  function doNotSubmit(evt) {
+    alert('I didn\'t submit!');
+    evt.preventDefault();
+  }
+
+  submitForm.addEventListener('submit', doNotSubmit);
+
 </script>
 
 <div class="hint">
@@ -176,20 +190,23 @@
 <script>
 //  Here's a stub of a function you can use!
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+  function reverseString() {
+    var msg = "Porcupines are cute";
+    var newMsg = '';
 
-// Here's a stub of event stuff you could use
-//
+    for (var i = (msg.length - 1); i > 0; i--) {
+      newMsg += msg[i];
+    };
+    //console.log(newMsg);
 
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+    alert(newMsg);
+  };
+
+//Here's a stub of event stuff you could use
+
+ var button = document.getElementById('reverse-string-button');
+ button.addEventListener('click', reverseString);
+
 </script>
 
 
@@ -201,7 +218,7 @@
 <p>You should use jQuery for these parts.</p>
 <p>We didn't include jQuery in this document, though&mdash;so your first task is to include it!</p>
 
-
+<script src="https://code.jquery.com/jquery.js"></script>
 
 <h3>Finding the Button</h3>
 <p>
@@ -213,7 +230,11 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  function alertMe(evt) {
+    alert('I\'m an alert!');
+  };
+  $('input.tricky-to-find').on('click', alertMe);
+
 </script>
 
 <div class="hint">
@@ -240,7 +261,11 @@
 </fieldset>
 
 <script>
-  // put your code here
+  $('#kittenz-rule').dblclick(function() {
+    $('#kittenz-rule').attr('src', 'http://weknowmemes.com/wp-content/uploads/2013/08/dog-meme-20.jpg');
+  });
+
+    
 </script>
 
 <div class="hint">
@@ -273,7 +298,16 @@
 </fieldset>
 
 <script>
-  // put your code here
+  $('#make-a-porcupine').on('click', timer);
+
+  function timer(evt) {
+    setTimeout(porcupine, 1000);
+  }
+
+  function porcupine() {
+    $('#cute-porcupine-image').slideDown(2000);
+  }
+
 </script>
 
 <div class="hint">
@@ -305,8 +339,24 @@
 </fieldset>
 
 <script>
-  // put your code here
+
+// get input from box
+// make into new text
+// on submit: prevent default, display text
+  function changeText(evt) {
+    evt.preventDefault();
+    var food = $('#favorite-food-input').val();
+    var newText = 'I like ' + food + ', too.';
+    $('#agreeable-text').html(newText);
+  };
+
+var form = document.getElementById('agreeable-form');
+
+form.addEventListener('submit', changeText);
+
 </script>
+
+
 
 <div class="hint">
   <div>
