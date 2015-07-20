@@ -12,15 +12,19 @@ def index_page():
     #
     # return render_template("index.html")
 
-@app.route('/application', methods=['POST'])
+@app.route('/application')
 def application():
+    return render_template('application-form.html')
+
+@app.route('/response', methods=['POST'])
+def respond():
 	first_name = request.form.get('first')
 	last_name = request.form.get('last')
 	job_title = request.form.get('job')
 	salary_req = request.form.get('salary')
 
 
-	return render_template('templates/response.html', 
+	return render_template('response.html', 
         first=first_name, 
         last=last_name, 
         job=job_title, 
